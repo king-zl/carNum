@@ -9,6 +9,9 @@
     <meta name="format-detection" content="telephone=no, email=no">
     <title>车牌号查询城市</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/layer.css">
+    <!--<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>-->
+    <script src="js/layer.js"></script>
 </head>
 <style>
     .loading {
@@ -64,11 +67,19 @@
     var sHeight = $(document).height();
     $("body").height(sHeight);
     $(".select").on("click",function () {
+//        layer.msg("dd");
         var inputNum = $("input").val().toUpperCase();
         console.log(inputNum)
 //        alert("您查的是"+"错误的"+"的车牌号");
         if(inputNum===""){
-            alert("你没输入车牌号，跟龙龙闹玩呢");
+//            layer.msg("您输入的验证码错误！");
+            layer.open({
+                content: '你没输入车牌号，跟龙龙闹玩呢'
+                ,skin: 'msg'
+                ,time: 2 //2秒后自动关闭
+                ,style:'top:0;'
+            });
+//            alert("你没输入车牌号，跟龙龙闹玩呢");
             return false;
         }
 //        for(var item in carNum){
@@ -85,12 +96,24 @@
 //                    alert("您查的是"+$(this)[0].province+"省"+$(this)[0].city+"市的车")
 //            }
             if(item.code===inputNum){
-                alert("您查的是"+$(this)[0].province+"省"+$(this)[0].city+"市的车");
+                layer.open({
+                    content: "您查的是"+$(this)[0].province+"省"+$(this)[0].city+"市的车"
+                    ,skin: 'msg'
+                    ,time: 2 //2秒后自动关闭
+                    ,style:'top:0;'
+                });
+//                alert("您查的是"+$(this)[0].province+"省"+$(this)[0].city+"市的车");
                 return false;
 
             }else{
                 if(length-1===index){
-                    alert("您查的是错误的的车牌号"+"-----"+"例子：城市简称：冀+B");
+                    layer.open({
+                        content: "您查的是错误的的车牌号"+"-----"+"例子：城市简称：冀+B"
+                        ,skin: 'msg'
+                        ,time: 2 //2秒后自动关闭
+                        ,style:'top:0;'
+                    });
+//                    alert("您查的是错误的的车牌号"+"-----"+"例子：城市简称：冀+B");
                 }
             }
 //            else {
