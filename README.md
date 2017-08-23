@@ -1,6 +1,6 @@
 ## Welcome to GitHub Pages
 
-https://king-zl.github.io/carNum/carNnm.html
+https://king-zl.github.io/carNum/carNum.html
 
 You can use the [editor on GitHub](https://github.com/king-zl/carNum/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
