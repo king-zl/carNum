@@ -13,11 +13,15 @@
 <style>
     div
 </style>
-<body>
+<body style="
+    background: linear-gradient(to bottom, crimson, blue);
+    background: -webkit-linear-gradient(to bottom, crimson, blue);
+    /*background: -moz-linear-gradient(to bottom, crimson, blue);*/
+     opacity:1;height: 100%; min-height: 100%;">
 
     <!--<input type="text" value="" style="text-transform: uppercase;">-->
     <!--<span style="display: inline-block;" class="select">查询</span>-->
-    <h4>龙龙   车牌号归属地查询</h4>
+    <h4 style="text-align: center; margin-top: 10%; color: #fff;">龙龙   车牌号归属地查询</h4>
     <div class="input-group" style="margin: 10% 20% 0 20%;">
         <input type="text" class="form-control"max="2" placeholder="请输入车牌" style="text-transform: uppercase;">
         <span class="input-group-btn">
@@ -29,7 +33,8 @@
 <script src="js/carB.js"></script>
 <script src="js/jquery.js"></script>
 <script>
-
+    var sHeight = $(document).height();
+    $("body").height(sHeight);
     $(".select").on("click",function () {
         var inputNum = $("input").val();
 //        alert("您查的是"+"错误的"+"的车牌号");
