@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no, email=no">
-    <title>龙龙，车牌号查询城市</title>
+    <title>车牌号查询城市</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <style>
@@ -16,14 +16,14 @@
 <body style="
     background: linear-gradient(to bottom, crimson, blue);
     background: -webkit-linear-gradient(to bottom, crimson, blue);
-    /*background: -moz-linear-gradient(to bottom, crimson, blue);*/
+    background: -moz-linear-gradient(to bottom, crimson, blue);
      opacity:1;height: 100%; min-height: 100%;">
 
     <!--<input type="text" value="" style="text-transform: uppercase;">-->
     <!--<span style="display: inline-block;" class="select">查询</span>-->
     <h4 style="text-align: center; margin-top: 10%; color: #fff;">龙龙   车牌号归属地查询</h4>
     <div class="input-group" style="margin: 10% 20% 0 20%;">
-        <input type="text" class="form-control"max="2" placeholder="请输入车牌" style="text-transform: uppercase;">
+        <input type="text" class="form-control"max="2" min="0" maxlength="4" type="number" placeholder="请输入车牌" style="text-transform: uppercase;">
         <span class="input-group-btn">
             <button class="btn btn-default select" type="button">查询</button>
           </span>
@@ -36,7 +36,8 @@
     var sHeight = $(document).height();
     $("body").height(sHeight);
     $(".select").on("click",function () {
-        var inputNum = $("input").val();
+        var inputNum = $("input").val().toUpperCase();
+        console.log(inputNum)
 //        alert("您查的是"+"错误的"+"的车牌号");
         if(inputNum===""){
             alert("你没输入车牌号，跟龙龙闹玩呢");
