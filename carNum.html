@@ -11,17 +11,39 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <style>
-    div
+    .loading {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: #fff;
+        z-index: 22;
+    }
+    .loading span {
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top:0;
+        right: 0;
+        bottom: 0;
+        width: 400px;
+        height: 300px;
+        margin: auto;
+        background: url("img/loading.gif");
+    }
 </style>
 <body style="
     background: linear-gradient(to bottom, crimson, blue);
     background: -webkit-linear-gradient(to bottom, crimson, blue);
     background: -moz-linear-gradient(to bottom, crimson, blue);
      opacity:1;height: 100%; min-height: 100%;">
-
+    <div class="loading">
+        <span></span>
+    </div>
     <!--<input type="text" value="" style="text-transform: uppercase;">-->
     <!--<span style="display: inline-block;" class="select">查询</span>-->
-    <h4 style="text-align: center; margin-top: 10%; color: #fff;">龙龙   车牌号归属地查询</h4>
+    <h4 style="text-align: center; padding-top: 15%; margin: 0; color: #fff;">龙龙   车牌号归属地查询</h4>
     <div class="input-group" style="margin: 10% 20% 0 20%;">
         <input type="text" class="form-control"max="2" min="0" maxlength="4" type="number" placeholder="请输入车牌" style="text-transform: uppercase;">
         <span class="input-group-btn">
@@ -33,6 +55,12 @@
 <script src="js/carB.js"></script>
 <script src="js/jquery.js"></script>
 <script>
+    document.onreadystatechange = function () {
+        if (document.readyState==="complete"){
+            $(".loading").fadeOut();
+        }
+
+    };
     var sHeight = $(document).height();
     $("body").height(sHeight);
     $(".select").on("click",function () {
@@ -41,6 +69,7 @@
 //        alert("您查的是"+"错误的"+"的车牌号");
         if(inputNum===""){
             alert("你没输入车牌号，跟龙龙闹玩呢");
+            return false;
         }
 //        for(var item in carNum){
 //            if(item==key){  //item 表示Json串中的属性，如'name'
